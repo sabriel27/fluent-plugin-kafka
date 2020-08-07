@@ -250,7 +250,7 @@ module Kafka
 
         begin
           if partition.nil?
-            partition = Partitioner.call(partition_count, message)
+            partition = Partitioner.new.call(partition_count, message)
           end
 
           @buffer.write(
